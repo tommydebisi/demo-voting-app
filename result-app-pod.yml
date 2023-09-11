@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: result-pod
+  labels:
+  # important for pods, needed when creating services
+    name: result-pod
+    app: voting-app
+spec:
+  containers:
+  # provide list of containers to be run in the pod
+  - name: result
+    image: docker/example-voting-app-result
+    ports:
+    # expose result port in the pod
+    - containerPort: 80

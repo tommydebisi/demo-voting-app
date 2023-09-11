@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+spec:
+  ports:
+  # listen on source port `port` and forward to `targetPort`
+  -
+    port: 5432
+    targetPort: 5432
+  
+  # specify the pod to attach this service to based on labels
+  selector:
+    name: postgres-pod
+    app: voting-app
